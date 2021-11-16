@@ -57,6 +57,7 @@ button {
 <button id="start-record">Start Recording</button>
 <button id="stop-record">Stop Recording</button>
 <a id="download-video" download="test.webm">Download Video</a>
+	<div id="gg"></div>
 	
 	    <div>
           <video id="video" src="media/video.mp4" controls="true"/>
@@ -103,6 +104,7 @@ button {
         let r = frame.data[i * 4 + 0];
         let g = frame.data[i * 4 + 1];
         let b = frame.data[i * 4 + 2];
+	      gg.innerHTML=r+"<br>"+g+"<br>"+b+"<br>";
         if (g > 100 && r > 100 && b < 43)
           frame.data[i * 4 + 3] = 0;
       }
