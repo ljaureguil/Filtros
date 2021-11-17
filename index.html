@@ -59,6 +59,7 @@ button {
 <a id="download-video" download="test.webm">Download Video</a>
   <div id="gg">LAURO JAUREGUI LOPEZ</div>
   <input type="file" accept="video/*" capture="camera" id="recorder" >
+	<input type="color" id="col"></input>
 
 	
     <div>
@@ -169,7 +170,7 @@ let processor = {
         let g = frame.data[i * 4 + 1];
         let b = frame.data[i * 4 + 2];
 //	        if (g > 90 && r > 70 && b < 40)  
-        if (g > 30 && r > 50 && b > 40)
+        if (g > 130 && r < 150 && b < 140)
           frame.data[i * 4 + 3] = 0;
       }
       this.ctx2.putImageData(frame, 0, 0);
