@@ -33,7 +33,7 @@ button {
     margin-top: 50px;
 }
 
-#video {
+#video1 {
     display: none;
     margin: 50px auto 0 auto;
 }
@@ -53,23 +53,36 @@ button {
 <body>
 
 <button id="start-camera">Start Camera</button>
-<video id="video1" width="320" height="240" autoplay></video>
+<video id="video1" width="420" height="340" autoplay src="media/video.mp4">llllllllllllllllllllllllll</video>
 <button id="start-record">Start Recording</button>
 <button id="stop-record">Stop Recording</button>
 <a id="download-video" download="test.webm">Download Video</a>
-	<div id="gg">LAURO JAUREGUI LOPEZ</div>
+  <div id="gg">LAURO JAUREGUI LOPEZ</div>
+  <input type="file" accept="video/*" capture="camera" id="recorder" >
+
 	
-	    <div>
-       
-    </div>
     <div>
-      <canvas id="c1" width="160" height="96"></canvas>
-      <canvas id="c2" width="160" height="96"></canvas>
+      <canvas id="c1" width="420" height="340"></canvas>
+      <canvas id="c2" width="420" height="340"></canvas>
     </div>
  
 	
 	<script>
-	
+   var recorder = document.getElementById('recorder');
+  //var player = document.getElementById('player');
+
+  recorder.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    // Do something with the video file.
+    video1.src = URL.createObjectURL(file);
+  });
+  
+
+
+
+
+
+
 /////////////////////////////////////////////////////
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video1");
@@ -156,7 +169,7 @@ let processor = {
         let g = frame.data[i * 4 + 1];
         let b = frame.data[i * 4 + 2];
 	  
-        if (g > 200 && r > 150 && b < 143)
+        if (g > 90 && r > 70 && b < 40)
           frame.data[i * 4 + 3] = 0;
       }
       this.ctx2.putImageData(frame, 0, 0);
