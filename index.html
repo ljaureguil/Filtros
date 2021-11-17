@@ -97,7 +97,9 @@ let blobs_recorded = [];
 
 camera_button.addEventListener('click', async function() {
    	try {
-    	camera_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    	camera_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true,facingMode: {
+      exact: 'environment'
+    } });
     }
     catch(error) {
     	alert(error.message);
